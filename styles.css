@@ -1,4 +1,5 @@
-header {
+body {
+  overflow-x: hidden;
   font-family: "ABeeZee";
 }
 
@@ -25,6 +26,29 @@ header {
   height: 400px;
   position: relative;
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.25);
+  animation: slide-in-left 1.3s ease-out forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
 
 .header-img {
@@ -41,6 +65,8 @@ header {
   width: 100%;
   text-align: center;
   bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  font-size: 2rem;
 }
 
 .header-content {
@@ -51,7 +77,8 @@ header {
   background-color: white;
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.25);
   margin: 2rem 0rem;
-  padding: 1rem;
+  padding: 1.5rem;
+  gap: 1rem;
 }
 
 .header-title {
@@ -60,17 +87,220 @@ header {
 }
 
 .header-desc {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+}
+
+.header-title,
+.header-desc {
+  animation: slide-in-right 1.3s ease-out forwards;
 }
 
 .header-icons {
   display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
   gap: 1rem;
-  align-self: flex-end;
 }
 
 .icons {
   width: 30px;
   height: 30px;
   cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0rem 5rem;
+  margin-bottom: 5rem;
+}
+
+.main-title {
+  font-weight: 600;
+  font-size: 1.7rem;
+  font-family: "Poppins";
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 4rem;
+  justify-content: center;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.project-img-container {
+  display: flex;
+  background-color: maroon;
+  color: white;
+  height: 250px;
+  width: 100%;
+  padding: 1rem;
+}
+
+.project-img-desc {
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.project-desc-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.project-desc-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+}
+
+.project-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem 5rem;
+  background-color: #0891b2;
+  color: white;
+  font-family: "Poppins";
+  gap: 1.8rem;
+}
+
+.footer-header {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-desc {
+  width: 50%;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.phone,
+.email {
+  display: flex;
+  gap: 1rem;
+}
+
+.socials {
+  display: flex;
+  gap: 2rem;
+}
+
+.socials img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-img {
+  width: 50%;
+}
+
+.footer-img > img {
+  aspect-ratio: 4 / 3;
+}
+
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .header-background {
+    height: 40vh;
+  }
+
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  footer div {
+    justify-content: center;
+  }
+
+  .footer-desc,
+  .footer-img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .header-container {
+    display: block;
+    padding: 5rem 3rem;
+  }
+
+  .header-content {
+    display: block;
+  }
+
+  .header-img-container {
+    float: left;
+    position: relative;
+    right: 10px;
+    bottom: 50px;
+    flex-direction: row;
+  }
+
+  .header-img-text {
+    position: relative;
+    right: 4rem;
+    top: 1rem;
+    font-size: 2.6rem;
+    text-wrap: nowrap;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+  }
+
+  .header-background {
+    height: 45vh;
+  }
+
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  footer div {
+    justify-content: center;
+  }
+
+  .footer-desc,
+  .footer-img {
+    width: 100%;
+  }
 }
